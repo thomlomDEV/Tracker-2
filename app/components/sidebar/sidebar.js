@@ -45,6 +45,7 @@ class Sidebar extends React.Component {
             <img src="http://www.gravatar.com/avatar/a5ae3b1de9f4a4ea33137563cf2e0c78" />
           </div>
           <h3>jsonmaur</h3>
+          <i className="fa fa-caret-up" />
         </a>
       </div>
     )

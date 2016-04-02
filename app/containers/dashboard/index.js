@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from 'components/sidebar/sidebar'
 import Companies from 'components/companies/companies'
+import Company from 'components/company/company'
 import styles from './index.styl'
 
 class Dashboard extends React.Component {
@@ -9,6 +10,7 @@ class Dashboard extends React.Component {
       <div className={ styles.container }>
         <Sidebar />
         <Companies />
+        <Company />
       </div>
     )
   }

@@ -1,6 +1,6 @@
 .container
   background clr-onyx
-  width 370px
+  width calc(45vw - 200px)
   position relative
 
 .search
@@ -37,8 +37,10 @@
   display flex
   justify-content space-between
   align-items center
+  &:not(:last-child)
+    border-bottom 1px solid clr-midnight
   &:hover
-    background clr-midnight
+    background lighten(clr-midnight, 3%)
 
 .companyActive
   background clr-midnight
