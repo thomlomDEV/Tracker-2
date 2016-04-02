@@ -1,0 +1,82 @@
+.container
+  size 200px 100vh
+  position relative
+  background clr-onyx
+  color clr-steel
+  overflow auto
+
+.logoContainer
+  background clr-mint
+  height 70px
+  display flex
+  justify-content center
+  align-items center
+
+.logo
+  width 40px
+  max-height 40px
+
+.subcontainer
+  padding 20px 25px
+  position relative
+  border-right 1px solid clr-midnight
+  margin-bottom 70px
+
+.total
+  border-bottom 1px solid clr-midnight
+  padding-bottom 20px
+  h5
+    font-size 12px
+    margin-bottom 5px
+  h2
+    font-size 24px
+    color white
+
+.nav
+  padding 10px 0 30px
+  line-height 40px
+  font-size 16px
+  width 100%
+  li
+    position relative
+  a
+    text-decoration none
+    color clr-steel
+    display block
+    &:hover, &.active
+      color white
+
+.badge
+  absolute top 50% right
+  transform translateY(-50%)
+  background clr-mint
+  size 25px 25px
+  border-radius 50%
+  text-align center
+  line-height 25px
+  font-size 12px
+  color white
+  pointer-events none
+
+.avatarContainer
+  background clr-midnight
+  fixed bottom left
+  width 200px
+  padding 15px 25px
+  display flex
+  justify-content space-between
+  align-items center
+  color white
+  text-decoration none
+  opacity 0.8
+  &:hover
+    opacity 1
+  h3
+    overflow ellipsis
+
+.avatar
+  size 40px 40px
+  border-radius 50%
+  overflow hidden
+  img
+    width 100%

@@ -1,20 +1,21 @@
 var path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var nib = require('nib')
 
 module.exports = {
-  entry: './app/index.js',
+  entry: path.resolve(__dirname, '../app/index.js'),
 
   output: {
-    path: './dist',
+    path: path.resolve(__dirname, '../dist'),
     filename: 'app.js',
     publicPath: '/'
   },
 
   resolve: {
     root: [
-      path.resolve('node_modules'),
-      path.resolve('app')
+      path.resolve(__dirname, '../node_modules'),
+      path.resolve(__dirname, '../app')
     ]
   },
 
@@ -39,16 +40,24 @@ module.exports = {
     ]
   },
 
+  stylus: {
+    use: [ nib() ],
+    import: [
+      path.resolve(__dirname, '../node_modules/nib/lib/nib/index.styl'),
+      path.resolve(__dirname, '../app/styles/global')
+    ]
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
-      template: './app/assets/index.html',
+      template: path.resolve(__dirname, '../app/assets/index.html'),
       filename: 'index.html',
       inject: 'body'
     })
   ],
 
   devServer: {
-    contentBase: './dist',
+    contentBase: path.resolve(__dirname, '../dist'),
     port: 8080,
     historyApiFallback: true,
     noInfo: true

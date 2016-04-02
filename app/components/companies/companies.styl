@@ -1,0 +1,30 @@
+.container
+  background clr-onyx
+  width 370px
+  position relative
+
+.search
+  position relative
+  width 100%
+  height 70px
+  i
+    absolute top 50% left 30px
+    transform translateY(-50%)
+    color clr-steel
+    z-index 5
+  input
+    size 100%
+    outline none
+    background clr-onyx
+    border none
+    border-bottom 1px solid clr-midnight
+    color white
+    font-size 16px
+    padding 0 30px 0 60px
+    placeholder-color(clr-steel)
+    opensans()
+    &:focus + i
+      color white
+
+.stocks
+  list-style-type none
