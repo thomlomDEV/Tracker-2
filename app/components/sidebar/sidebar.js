@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import styles from './sidebar.styl'
-import logoWhite from 'assets/img/logo-white.png'
+import logoWhite from 'assets/img/logo.png'
 
 class Sidebar extends React.Component {
   render() {

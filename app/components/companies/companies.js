@@ -1,6 +1,8 @@
 import React from 'react'
 import classnames from 'classnames'
 import styles from './companies.styl'
+import graphUp from 'assets/img/graph-green.svg'
+import graphDown from 'assets/img/graph-red.svg'
 
 class Companies extends React.Component {
   render() {
@@ -19,7 +21,7 @@ class Companies extends React.Component {
 
     companies = companies.map((company, key) => {
       const classname = classnames(styles.company, {
-        [styles.companyActive]: (key === 2)
+        [styles.companyActive]: (key === 3)
       })
 
       return (
@@ -28,6 +30,8 @@ class Companies extends React.Component {
             <h3>{ company.name }</h3>
             <h5>{ company.shares } SHARES</h5>
           </div>
+
+          <img className={ styles.graph } src={ company.status === 'up' ? graphUp : graphDown } />
 
           <span className={ company.status === 'up' ? styles.priceUp : styles.priceDown }>
             { company.price }

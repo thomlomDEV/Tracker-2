@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './company.styl'
+import graph from 'assets/img/graph-green-lrg.svg'
 
 class Company extends React.Component {
   render() {
@@ -18,7 +19,16 @@ class Company extends React.Component {
         </header>
 
         <div className={ styles.graph }>
+          <img src={ graph } />
 
+          <nav className={ styles.graphTimespan }>
+            <a href="#" className={ styles.graphTimespanActive }>1 DAY</a>
+            <a href="#">1 WEEK</a>
+            <a href="#">1 MONTH</a>
+            <a href="#">6 MONTHS</a>
+            <a href="#">1 YEAR</a>
+            <a href="#">ALL</a>
+          </nav>
         </div>
 
         <div className={ styles.info }>
