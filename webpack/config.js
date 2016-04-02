@@ -2,6 +2,7 @@ var path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var nib = require('nib')
+var rupture = require('rupture')
 
 module.exports = {
   entry: path.resolve(__dirname, '../app/index.js'),
@@ -45,7 +46,7 @@ module.exports = {
   },
 
   stylus: {
-    use: [ nib() ],
+    use: [ nib(), rupture() ],
     import: [
       path.resolve(__dirname, '../node_modules/nib/lib/nib/index.styl'),
       path.resolve(__dirname, '../app/styles/global')
