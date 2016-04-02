@@ -1,9 +1,35 @@
 import React from 'react'
+import classnames from 'classnames'
 import styles from './company.styl'
 import graph from 'assets/img/graph-green-lrg.svg'
 
 class Company extends React.Component {
+  constructor(props) {
+    super(props)
+    this.changeGraphTimespan = this.changeGraphTimespan.bind(this)
+    this.state = { graphTimespan: '1-day' }
+  }
+
   render() {
+    let timespans = ['1 DAY', '1 WEEK', '1 MONTH', '6 MONTHS', '1 YEAR', 'ALL']
+    timespans = timespans.map((span, key) => {
+      const dataTimespan = span.toLowerCase().replace(' ', '-')
+      const className = classnames({
+        [styles.graphTimespanActive]: (this.state.graphTimespan === dataTimespan)
+      })
+
+      return (
+        <a
+          key={ key }
+          data-timespan={ dataTimespan }
+          href="#"
+          onClick={ this.changeGraphTimespan }
+          className={ className }>
+          { span }
+        </a>
+      )
+    })
+
     return (
       <div className={ styles.container }>
         <header className={ styles.header }>
@@ -22,12 +48,7 @@ class Company extends React.Component {
           <img src={ graph } />
 
           <nav className={ styles.graphTimespan }>
-            <a href="#" className={ styles.graphTimespanActive }>1 DAY</a>
-            <a href="#">1 WEEK</a>
-            <a href="#">1 MONTH</a>
-            <a href="#">6 MONTHS</a>
-            <a href="#">1 YEAR</a>
-            <a href="#">ALL</a>
+            { timespans }
           </nav>
         </div>
 
@@ -100,6 +121,12 @@ class Company extends React.Component {
         </div>
       </div>
     )
+  }
+
+  changeGraphTimespan(e) {
+    e.preventDefault()
+    const { timespan } = e.target.dataset
+    this.setState({ graphTimespan: timespan })
   }
 }
 
