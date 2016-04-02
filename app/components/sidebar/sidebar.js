@@ -49,7 +49,7 @@ class Sidebar extends React.Component {
 
         <div className={ styles.avatarContainer } onClick={ this.openAccountMenu }>
           <div className={ styles.avatar }>
-            <img src="http://www.gravatar.com/avatar/a5ae3b1de9f4a4ea33137563cf2e0c78" />
+            <img src="https://www.gravatar.com/avatar/a5ae3b1de9f4a4ea33137563cf2e0c78" />
           </div>
           <h3>jsonmaur</h3>
           <i className="fa fa-caret-up" />

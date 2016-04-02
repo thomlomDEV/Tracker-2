@@ -1,0 +1,10 @@
+{
+  "name": "robinhood",
+  "root": "dist",
+  "routes": [
+    {
+      "src": "/**",
+      "dest": "index.html"
+    }
+  ]
+}
