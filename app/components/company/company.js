@@ -1,7 +1,8 @@
 import React from 'react'
 import classnames from 'classnames'
 import styles from './company.styl'
-import graph from 'assets/img/graph-green-lrg.svg'
+import graphUp from 'assets/img/graph-green-lrg.svg'
+import graphDown from 'assets/img/graph-red-lrg.svg'
 
 class Company extends React.Component {
   constructor(props) {
@@ -30,22 +31,24 @@ class Company extends React.Component {
       )
     })
 
+    const wentUp = this.props.company.status === 'up'
+
     return (
       <div className={ styles.container }>
         <header className={ styles.header }>
           <div>
-            <h2 className={ styles.price }>$227.75</h2>
-            <p><span className={ styles.green }>+5.17 (2.32%)</span> TODAY</p>
+            <h2 className={ styles.price }>{ this.props.company.price }</h2>
+            <p><span className={ wentUp ? styles.green : styles.red }>{ wentUp ? '+' : '-' }5.17 (2.32%)</span> TODAY</p>
             <p>228.30 +0.55 (0.24%) AFTER-HOURS</p>
           </div>
           <div className={ styles.name }>
-            <h4 className={ styles.sub }>TSLA</h4>
-            <p>Tesla Motors, Inc. | Common Stock</p>
+            <h4 className={ styles.sub }>{ this.props.company.name }</h4>
+            <p>{ this.props.company.fullName } | Common Stock</p>
           </div>
         </header>
 
         <div className={ styles.graph }>
-          <img src={ graph } />
+          <img src={ wentUp ? graphUp : graphDown } />
 
           <nav className={ styles.graphTimespan }>
             { timespans }
@@ -60,23 +63,23 @@ class Company extends React.Component {
                 <tbody>
                   <tr>
                     <td>OPEN</td>
-                    <td>215.17</td>
+                    <td>{ this.randomNumber() }</td>
                   </tr>
                   <tr>
                     <td>HIGH</td>
-                    <td>228.89</td>
+                    <td>{ this.randomNumber() }</td>
                   </tr>
                   <tr>
                     <td>LOW</td>
-                    <td>215.00</td>
+                    <td>{ this.randomNumber() }</td>
                   </tr>
                   <tr>
                     <td>52 WK HIGH</td>
-                    <td>286.65</td>
+                    <td>{ this.randomNumber() }</td>
                   </tr>
                   <tr>
                     <td>52 WK LOW</td>
-                    <td>141.05</td>
+                    <td>{ this.randomNumber() }</td>
                   </tr>
                 </tbody>
               </table>
@@ -84,15 +87,15 @@ class Company extends React.Component {
                 <tbody>
                   <tr>
                     <td>VOLUME</td>
-                    <td>2.73M</td>
+                    <td>{ this.randomVolume() }</td>
                   </tr>
                   <tr>
                     <td>AVG VOLUME</td>
-                    <td>4.33M</td>
+                    <td>{ this.randomVolume() }</td>
                   </tr>
                   <tr>
                     <td>MKT CAP</td>
-                    <td>29.25B</td>
+                    <td>{ this.randomVolume() }</td>
                   </tr>
                   <tr>
                     <td>P/E RATIO</td>
@@ -127,6 +130,14 @@ class Company extends React.Component {
     e.preventDefault()
     const { timespan } = e.target.dataset
     this.setState({ graphTimespan: timespan })
+  }
+
+  randomNumber() {
+    return ((Math.random() * 999) + 100).toFixed(2)
+  }
+
+  randomVolume() {
+    return ((Math.random() * 99) + 10).toFixed(2) + 'M'
   }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 import classnames from 'classnames'
 import styles from './companies.styl'
 import graphUp from 'assets/img/graph-green.svg'
@@ -6,34 +7,30 @@ import graphDown from 'assets/img/graph-red.svg'
 
 class Companies extends React.Component {
   render() {
-    let companies = [
-      { name: 'APPL', shares: '120', price: '$105.67', status: 'up' },
-      { name: 'FB', shares: '110', price: '$113.05', status: 'up' },
-      { name: 'TWTR', shares: '80', price: '$15.91', status: 'down' },
-      { name: 'TSLA', shares: '75', price: '$227.75', status: 'up' },
-      { name: 'NFLX', shares: '50', price: '$98.36', status: 'down' },
-      { name: 'F', shares: '50', price: '$13.06', status: 'down' },
-      { name: 'DIS', shares: '15', price: '$97.22', status: 'up' },
-      { name: 'GPRO', shares: '10', price: '$12.42', status: 'up' },
-      { name: 'FIT', shares: '10', price: '$14.58', status: 'up' },
-      { name: 'BABA', shares: '5', price: '$75.86', status: 'down' }
-    ]
-
-    companies = companies.map((company, key) => {
-      const classname = classnames(styles.company, {
-        [styles.companyActive]: (key === 3)
+    const companies = this.props.companies.map((company, key) => {
+      const className = classnames(styles.company, {
+        [styles.companyActive]: (company === this.props.current)
       })
 
       return (
-        <div key={ key } className={ classname }>
+        <div
+          key={ key }
+          className={ className }
+          onClick={ this.props.onSelect.bind(null, key) }
+          >
           <div className={ styles.companyName }>
             <h3>{ company.name }</h3>
             <h5>{ company.shares } SHARES</h5>
           </div>
 
-          <img className={ styles.graph } src={ company.status === 'up' ? graphUp : graphDown } />
+          <img
+            className={ styles.graph }
+            src={ company.status === 'up' ? graphUp : graphDown }
+            />
 
-          <span className={ company.status === 'up' ? styles.priceUp : styles.priceDown }>
+          <span
+            className={ company.status === 'up' ? styles.priceUp : styles.priceDown }
+            >
             { company.price }
           </span>
         </div>

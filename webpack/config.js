@@ -36,6 +36,10 @@ module.exports = {
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: ['url?limit=10000&hash=sha512&digest=hex&name=[hash].[ext]']
+      },
+      {
+        test: /.(txt)$/i,
+        loaders: ['static']
       }
     ]
   },

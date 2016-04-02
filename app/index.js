@@ -1,3 +1,5 @@
+import 'assets/robots.txt?output=robots.txt'
+
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
