@@ -11,7 +11,8 @@
   },
   "scripts": {
     "watch": "webpack-dev-server --inline --hot --config webpack/config.dev.js",
-    "build": "rm -rf dist && webpack -p --hide-modules --bail --progress --config webpack/config.prod.js"
+    "build": "rm -rf dist && webpack -p --hide-modules --bail --progress --config webpack/config.prod.js",
+    "deploy": "surge --project dist --domain robinhood.surge.sh"
   },
   "dependencies": {
     "classnames": "2.2.3",
@@ -33,6 +34,7 @@
     "static-loader": "0.1.8",
     "style-loader": "0.13.1",
     "stylus-loader": "2.0.0",
+    "surge": "^0.18.0",
     "url-loader": "0.5.7",
     "webpack": "1.12.14",
     "webpack-dev-server": "1.14.1"
